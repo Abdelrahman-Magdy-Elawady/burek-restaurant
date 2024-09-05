@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+  h1 {
+    @apply text-3xl font-bold md:text-4xl;
+  }
+}
+
+:root {
+  --coHeaderHeight: 5rem;
+  --sideBarWidth: 135px;
+  --mdHeaderHeight: 116px;
+  /*--------------------------------*/
+  --page-padding: 1rem;
+  --md-page-top-padding: calc(var(--mdHeaderHeight) + var(--page-padding));
+  --page-top-padding: calc(var(--coHeaderHeight) + var(--page-padding));
+  --md-page-left-padding: calc(var(--sideBarWidth) + var(--page-padding));
+}
+
+/* * {
+  border: 1px solid black;
+} */
