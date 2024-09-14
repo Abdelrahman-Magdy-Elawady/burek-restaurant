@@ -50,7 +50,7 @@ export default function CheckoutPage() {
               styles={{
                 caption: "text-left p-2  border-b-4 border-black pb-8",
                 table:
-                  "w-full text-center table-auto border-2 border-black bg-white max-w-[1024px] bg-white w-full rounded-xl  shadow-xl",
+                  "w-full text-center table-auto border-2 border-black bg-white max-w-[1024px] bg-white w-full rounded-xl  shadow-xl ",
                 body: "p-2 border-2 border-black",
                 header: "border-b-2 border-black p-2",
                 footer: "font-bold p-2 text-xl border-2 border-black",
