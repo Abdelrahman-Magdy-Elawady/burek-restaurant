@@ -17,7 +17,9 @@ export default function MainMenu({ onClick, className }) {
     content = <CategoryMenuListItem category={data} onClick={onClick} />;
   }
   return (
-    <div className={`${className} overflow-auto p-2 bg-white shadow-inner`}>
+    <div
+      className={`${className} overflow-auto p-2 bg-white shadow-inner overscroll-contain`}
+    >
       {content}
     </div>
   );

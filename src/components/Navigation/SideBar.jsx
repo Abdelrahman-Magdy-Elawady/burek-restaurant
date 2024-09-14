@@ -52,7 +52,7 @@ export default function SideBar({ className }) {
   );
   //---------------------------------------------------
   return (
-    <div ref={ref}>
+    <div ref={ref} className="overscroll-contain">
       <div
         onClick={() => {
           setMenuBarState(!menuBarState);
@@ -71,7 +71,7 @@ export default function SideBar({ className }) {
         <div
           className={`menu ${className} flex ${
             showCategoryMenu && "w-full"
-          }  md:w-auto`}
+          }  md:w-auto `}
         >
           <div
             className={` flex flex-col justify-between items-center px-4 py-8 bg-white shadow-md shadow-black w-[--sideBarWidth]`}

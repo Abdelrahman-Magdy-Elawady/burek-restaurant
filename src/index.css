@@ -23,7 +23,6 @@
   --page-top-padding: calc(var(--coHeaderHeight) + var(--page-padding));
   --md-page-left-padding: calc(var(--sideBarWidth) + var(--page-padding));
 }
-
 /* * {
   border: 1px solid black;
 } */

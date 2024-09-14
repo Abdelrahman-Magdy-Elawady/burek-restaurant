@@ -4,17 +4,19 @@ import { useEffect, useState } from "react";
 import { GiCookingPot } from "react-icons/gi";
 import CountingButton from "./Buttons/CountingButton";
 import Button from "./Buttons/Button";
-import { motion } from "framer-motion";
+import Toaster from "./Toaster";
 
 //---------------------------------------------
 
 const generatePrice = () => {
   return parseInt(5 + Math.random() * 10);
 };
+var countTemp = 0;
 
 export default function SingleCategoryItem({ meal, className }) {
   const [count, setCount] = useState(0);
   const [price, setPrice] = useState(0);
+  const [showToaster, setShowToaster] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -29,6 +31,8 @@ export default function SingleCategoryItem({ meal, className }) {
         count,
       })
     );
+    countTemp = count;
+    setShowToaster(true);
     setCount(0);
   };
   useEffect(() => {
@@ -58,7 +62,7 @@ export default function SingleCategoryItem({ meal, className }) {
         <img
           src={meal.strMealThumb}
           alt={meal.strMeal}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover [border-radius:5px_5px_30px_0]"
         />
       </div>
 
@@ -91,6 +95,14 @@ export default function SingleCategoryItem({ meal, className }) {
           </div>
         </Button>
       </div>
+
+      {showToaster && (
+        <Toaster close={() => setShowToaster(false)} time={5000}>
+          <span className="font-bold">{countTemp} x </span>
+          {meal.strMeal}
+          <span className="font-bold">Added Successfully </span>
+        </Toaster>
+      )}
     </div>
   );
 }

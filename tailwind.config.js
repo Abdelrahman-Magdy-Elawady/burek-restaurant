@@ -9,7 +9,7 @@ export default {
         bgColor: "#FAFAFA",
       },
       screens: {
-        "support-hover": { raw: "(hover: hover)" },
+        "support-hover": { raw: "(hover: hover) and (pointer: fine)" },
       },
     },
   },
