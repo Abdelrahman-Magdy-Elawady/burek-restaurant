@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
 import { IoClose } from "react-icons/io5";
-import formBg from "../../assets/form-bg.jpg";
+
 import { useEffect } from "react";
 
 export default function PaymentVerification({ onClose, children }) {
@@ -16,13 +16,7 @@ export default function PaymentVerification({ onClose, children }) {
       />
       <div
         className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-    fixed md:w-[720px] w-full p-16  z-[999] rounded-2xl"
-        style={{
-          backgroundImage: `url(${formBg})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
+    fixed    md:h-auto md:w-[720px] w-full py-16 md:px-16 px-4   z-[999] rounded-2xl bg-white shadow-xl text-sm sm:text-base"
       >
         <IoClose
           className="absolute top-0 right-0 -translate-x-1/2 translate-y-1/2 text-4xl support-hover:hover:scale-150 support-hover:hover:cursor-pointer "

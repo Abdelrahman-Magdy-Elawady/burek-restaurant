@@ -30,7 +30,7 @@ export default function CheckoutForm({ totalPrice }) {
     // console.log(data);
     if (data.deliveryMethod === "selfPickup") {
       setVerificationContent(
-        <div className="flex flex-col justify-center  gap-8 capitalize h-full">
+        <div className="flex flex-col justify-center items-center  gap-8 capitalize h-full ">
           <h1>thank you</h1>
           <div>
             You chose to
@@ -66,8 +66,8 @@ export default function CheckoutForm({ totalPrice }) {
           <div>
             <span className="font-bold">your address is : </span>
             {data.address}
-            <div>and the delivery will arrive in 45 minutes</div>
           </div>
+          <div>the delivery will arrive in 45 minutes</div>
         </div>
       );
     }

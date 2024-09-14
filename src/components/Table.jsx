@@ -28,8 +28,7 @@ export default function Table({ caption, header, body, footer, styles }) {
   return (
     <table className={styles.table}>
       <caption className={styles.caption}>
-        {" "}
-        <h1>{caption}</h1>{" "}
+        <h1>{caption}</h1>
       </caption>
       <thead>
         <tr>{headerList}</tr>
