@@ -19,7 +19,7 @@ export default function ApplyForm({ closeModal }) {
     return () => document.body.classList.remove("overflow-hidden");
   }, []);
   //--------------------------------------------------------
-  const submitHandler = async (data) => {
+  const submitHandler = async (/*data*/) => {
     //send data to backend ,but i don't have backend now
     await new Promise((resolve) => setTimeout(resolve, 1000));
     //console.log(data);
