@@ -8,7 +8,7 @@
 
 ### Links
 
-- Live Site URL: [Todo App](https://todo-app-mohamedagina.vercel.app/)
+- Live Site URL: [burek-restaurant](https://burek-restaurant.vercel.app/home)
 
 ## My process
 
@@ -40,5 +40,4 @@
 
 ## Author
 
-- Frontend Mentor - [@mohamedagina](https://www.frontendmentor.io/profile/mohamedagina)
-- LinkedIn - [@mohamedagina](https://www.linkedin.com/in/mohamed-agina/)
+- LinkedIn - [@mohamedagina](https://www.linkedin.com/in/abdelrahman-magdy-el-awady/)
