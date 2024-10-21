@@ -40,4 +40,4 @@
 
 ## Author
 
-- LinkedIn - [@mohamedagina](https://www.linkedin.com/in/abdelrahman-magdy-el-awady/)
+- LinkedIn - [@Abdelrahman magdy](https://www.linkedin.com/in/abdelrahman-magdy-el-awady/)
