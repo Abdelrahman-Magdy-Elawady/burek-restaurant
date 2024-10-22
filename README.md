@@ -2,15 +2,19 @@
 
 - [Overview](#overview)
   - [Links](#links)
-- [My process](#my-process)
+- [screenshot](#screenshot)
   - [Built with](#built-with)
 - [Author](#author)
 
 ### Links
 
-- Live Site URL: [Todo App](https://todo-app-mohamedagina.vercel.app/)
+- Live Site URL: [burek-restaurant](https://burek-restaurant.vercel.app/home)
 
-## My process
+### Screenshot
+
+![](./src/assets/github%20thumnails/1.png)
+![](./src/assets/github%20thumnails/2.png)
+![](./src/assets/github%20thumnails/3.png)
 
 ### Built with
 
@@ -40,5 +44,4 @@
 
 ## Author
 
-- Frontend Mentor - [@mohamedagina](https://www.frontendmentor.io/profile/mohamedagina)
-- LinkedIn - [@mohamedagina](https://www.linkedin.com/in/mohamed-agina/)
+- LinkedIn - [@Abdelrahman magdy](https://www.linkedin.com/in/abdelrahman-magdy-el-awady/)
