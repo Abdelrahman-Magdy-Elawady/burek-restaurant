@@ -34,8 +34,12 @@ export default function CategoryMenuListItem({ category, onClick }) {
           className="category flex flex-col justify-center items-center  p-4 gap-4  group support-hover:hover:cursor-pointer  bg-white shadow-sm"
           onClick={onClick}
         >
-          <div className="relative rounded-xl  overflow-hidden group-support-hover:hover:scale-75 transition-transform duration-500">
-            <img src={category.strCategoryThumb} alt={category.strCategory} />
+          <div className="relative rounded-xl  overflow-hidden support-hover:group-hover:scale-75 transition-transform duration-500 h-28 w-full">
+            <img
+              src={category.strCategoryThumb}
+              alt={category.strCategory}
+              className="size-full object-contain"
+            />
           </div>
           <div className="font-bold">{category.strCategory}</div>
         </Link>

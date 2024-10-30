@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRef } from "react";
 
 export default function HamburgerIcon({
-  width = "2rem",
+  width = "2.5rem",
   color = "black",
   childHeigth = "4px",
   autoplay = false,
@@ -75,17 +75,15 @@ export default function HamburgerIcon({
         //--------------------------
         timeL2
           .to("#mid", {
-            opacity: 0,
+            autoAlpha: 0,
           })
           .to("#top", {
-            position: "absolute",
             top: "50%",
             rotate: -45,
           })
           .to(
             "#bottom",
             {
-              position: "absolute",
               top: "50%",
               rotate: 45,
             },
@@ -102,16 +100,24 @@ export default function HamburgerIcon({
     <div
       ref={container}
       onClick={clickFun}
-      className=" relative aspect-square flex flex-col justify-between support-hover:hover:cursor-pointer"
+      className=" relative aspect-square  support-hover:hover:cursor-pointer "
       style={parentStyles}
     >
-      <div id="top" style={childStyles} className="w-full rounded-full"></div>
-      <div id="mid" style={childStyles} className="w-full rounded-full"></div>
+      <div
+        id="top"
+        style={childStyles}
+        className="w-full rounded-full absolute top-[10%] -translate-y-1/2"
+      />
+      <div
+        id="mid"
+        style={childStyles}
+        className="w-full rounded-full block absolute top-1/2 -translate-y-1/2"
+      />
       <div
         id="bottom"
         style={childStyles}
-        className="w-full rounded-full"
-      ></div>
+        className="w-full rounded-full absolute top-[90%] -translate-y-1/2"
+      />
     </div>
   );
 }

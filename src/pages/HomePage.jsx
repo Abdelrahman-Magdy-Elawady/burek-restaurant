@@ -58,18 +58,14 @@ export default function HomePage() {
       const text1 = new SplitType(".charblock-1");
       const text2 = new SplitType(".charblock-2");
       const text3 = new SplitType(".charblock-3");
-      const blocks = [text1.chars, text2.chars, text3.chars];
+      const blocks = [text1.lines, text2.lines, text3.lines];
 
-      gsap.from(blocks[indexs.currentIndex], {
-        yPercent: 100,
-        xPercent: -100,
-        scaleX: -1,
-        scale: 0.1,
-        opacity: 0,
-        stagger: {
-          each: 0.05,
-        },
-      });
+      // gsap.from(blocks[indexs.currentIndex], {
+      //   yPercent: 100,
+      //   stagger: {
+      //     each: 0.1,
+      //   },
+      // });
       //------------------------------------------------
     },
     { dependencies: [indexs], scope: homepageRef }
@@ -117,6 +113,7 @@ export default function HomePage() {
             src="https://burek.intexagency.com/wp-content/uploads/2022/05/burger-banner-recovered_main-scaled.jpg"
             alt="bg-burger"
             decoding="async"
+            loading="lazy"
             srcSet="https://burek.intexagency.com/wp-content/uploads/2022/05/burger-banner-recovered_main-scaled.jpg 2560w, https://burek.intexagency.com/wp-content/uploads/2022/05/burger-banner-recovered_main-300x154.jpg 300w, https://burek.intexagency.com/wp-content/uploads/2022/05/burger-banner-recovered_main-1024x525.jpg 1024w, https://burek.intexagency.com/wp-content/uploads/2022/05/burger-banner-recovered_main-768x394.jpg 768w, https://burek.intexagency.com/wp-content/uploads/2022/05/burger-banner-recovered_main-1536x788.jpg 1536w, https://burek.intexagency.com/wp-content/uploads/2022/05/burger-banner-recovered_main-2048x1050.jpg 2048w, https://burek.intexagency.com/wp-content/uploads/2022/05/burger-banner-recovered_main-600x308.jpg 600w, https://burek.intexagency.com/wp-content/uploads/2022/05/burger-banner-recovered_main-160x82.jpg 160w"
             sizes="(max-width: 2560px) 100vw, 2560px"
           ></img>
@@ -125,13 +122,13 @@ export default function HomePage() {
             "
             style={{ textShadow: "1.5px 1.5px  black" }}
           >
-            <div className="text-center charblock-1 text-xl md:text-2xl">
+            <div className="text-center  text-xl md:text-2xl overflow-hidden">
               hot summer offer!
             </div>
-            <div className="text-3xl md:text-6xl text-center md:text-left charblock-1">
+            <div className="text-3xl md:text-5xl text-center md:text-left ">
               try brand new
             </div>
-            <div className="text-center md:text-left text-3xl md:text-6xl charblock-1 ">
+            <div className="text-center md:text-left text-3xl md:text-5xl ">
               big mama burger!
             </div>
             <Link to="/category/Breakfast">
@@ -157,6 +154,7 @@ export default function HomePage() {
             src="https://burek.intexagency.com/wp-content/uploads/2022/05/icecream-banner-recovered_main-scaled.jpg"
             alt="bg"
             decoding="async"
+            loading="lazy"
             srcSet="https://burek.intexagency.com/wp-content/uploads/2022/05/icecream-banner-recovered_main-scaled.jpg 2560w, https://burek.intexagency.com/wp-content/uploads/2022/05/icecream-banner-recovered_main-300x154.jpg 300w, https://burek.intexagency.com/wp-content/uploads/2022/05/icecream-banner-recovered_main-1024x525.jpg 1024w, https://burek.intexagency.com/wp-content/uploads/2022/05/icecream-banner-recovered_main-768x394.jpg 768w, https://burek.intexagency.com/wp-content/uploads/2022/05/icecream-banner-recovered_main-1536x788.jpg 1536w, https://burek.intexagency.com/wp-content/uploads/2022/05/icecream-banner-recovered_main-2048x1050.jpg 2048w, https://burek.intexagency.com/wp-content/uploads/2022/05/icecream-banner-recovered_main-600x308.jpg 600w, https://burek.intexagency.com/wp-content/uploads/2022/05/icecream-banner-recovered_main-160x82.jpg 160w"
             sizes="(max-width: 2560px) 100vw, 2560px"
           ></img>
@@ -164,13 +162,13 @@ export default function HomePage() {
             className="uppercase absolute inset-0 flex flex-col items-center   text-white font-bold  text-sm gap-10 justify-center  md:items-start md:pl-20 md:pt-0 md:gap-16"
             style={{ textShadow: "1.5px 1.5px  black" }}
           >
-            <div className="text-center charblock-2 text-xl md:text-2xl">
+            <div className="text-center text-xl md:text-2xl">
               cool down this summer!
             </div>
-            <div className="text-center md:text-left text-3xl md:text-6xl charblock-2">
+            <div className="text-center md:text-left text-3xl md:text-5xl">
               Nasty tasty!
             </div>
-            <div className="text-center md:text-left text-3xl md:text-6xl charblock-2">
+            <div className="text-center md:text-left text-3xl md:text-5xl">
               melting season started
             </div>
             <Link to="/category/Dessert">
@@ -196,6 +194,7 @@ export default function HomePage() {
             src="https://burek.intexagency.com/wp-content/uploads/2021/03/burek-banner-2.jpg"
             alt="pizza-log"
             decoding="async"
+            loading="lazy"
             srcSet="https://burek.intexagency.com/wp-content/uploads/2021/03/burek-banner-2.jpg 1920w, https://burek.intexagency.com/wp-content/uploads/2021/03/burek-banner-2-600x300.jpg 600w, https://burek.intexagency.com/wp-content/uploads/2021/03/burek-banner-2-300x150.jpg 300w, https://burek.intexagency.com/wp-content/uploads/2021/03/burek-banner-2-1024x512.jpg 1024w, https://burek.intexagency.com/wp-content/uploads/2021/03/burek-banner-2-768x384.jpg 768w, https://burek.intexagency.com/wp-content/uploads/2021/03/burek-banner-2-1536x768.jpg 1536w, https://burek.intexagency.com/wp-content/uploads/2021/03/burek-banner-2-160x80.jpg 160w"
             sizes="(max-width: 1920px) 100vw, 1920px"
           ></img>
@@ -203,13 +202,13 @@ export default function HomePage() {
             className="uppercase absolute inset-0 flex flex-col items-center   text-white font-bold  text-sm gap-10 justify-center  md:items-start md:pl-20 md:pt-0 md:gap-16"
             style={{ textShadow: "1.5px 1.5px  black" }}
           >
-            <div className="text-center charblock-3 text-xl md:text-2xl">
+            <div className="text-center text-xl md:text-2xl">
               tuesday turkish wibe!
             </div>
-            <div className="text-3xl md:text-6xl text-center md:text-left capitalize charblock-3">
+            <div className="text-3xl md:text-5xl text-center md:text-left capitalize ">
               try brand new
             </div>
-            <div className="text-3xl md:text-6xl text-center md:text-left charblock-3">
+            <div className="text-3xl md:text-5xl text-center md:text-left ">
               beef juicy burek
             </div>
             <Link to="/category/Beef">

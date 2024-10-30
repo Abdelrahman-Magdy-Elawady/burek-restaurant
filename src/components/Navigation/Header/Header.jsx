@@ -5,36 +5,22 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Link } from "react-router-dom";
+import { useMediaQuery, useClickOutside } from "../../../hooks";
 
 //-----------------------------------------------
 export default function Header({ className }) {
   const matchmediaRef = useRef(null);
-  const [optionBarState, setOptionBarState] = useState(window.innerWidth > 768);
+  const { isMd } = useMediaQuery();
+  const [optionBarState, setOptionBarState] = useState(isMd);
   const ref = useRef(null);
+  useClickOutside(ref, () => setOptionBarState(isMd));
 
   //--------------------------------------------
   useEffect(() => {
-    const updateMedia = () => {
-      setOptionBarState(window.innerWidth > 768);
-    };
-    window.addEventListener("resize", updateMedia);
-    const Handler = (e) => {
-      if (!ref.current) {
-        return;
-      }
-      if (!ref.current.contains(e.target)) {
-        setOptionBarState(window.innerWidth > 768);
-      }
-    };
-    document.addEventListener("click", Handler, true);
-
-    return () => {
-      document.removeEventListener("click", Handler);
-      window.removeEventListener("resize", updateMedia);
-    };
-  }, []);
-  //--------------------------------------------------
-
+    setOptionBarState(isMd);
+  }, [isMd]);
+  //------------------------------------------
   useGSAP(
     () => {
       //----------------
@@ -70,6 +56,15 @@ export default function Header({ className }) {
           className={`${className} menu flex flex-col-reverse justify-evenly   items-center p-3 md:flex-row  md:justify-end md:px-6 md:pt-6 md:gap-8 md:w-full text-black font-bold bg-white shadow-md shadow-black 
           md:shadow-sm `}
         >
+          <Link to="/home" className="hidden md:block flex-1 pl-4">
+            <img
+              width="49"
+              height="50"
+              src="https://burek.intexagency.com/wp-content/uploads/2022/05/logo-small.svg"
+              alt="logo"
+              decoding="async"
+            />
+          </Link>
           <Navbar />
           <ShoppingCart />
         </div>

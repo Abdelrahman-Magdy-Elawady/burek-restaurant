@@ -1,40 +1,31 @@
 import { FaPhoneAlt } from "react-icons/fa";
 import { LuClock } from "react-icons/lu";
-import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import CategoryMenu from "../Menu/CategoryMenu";
 import HamburgerIcon from "../HamburgerIcon";
 import { IoFastFood } from "react-icons/io5";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
+import { useClickOutside, useMediaQuery } from "../../hooks";
 
 //-----------------------------------------------
 export default function SideBar({ className }) {
   const ref = useRef(null);
-  const [menuBarState, setMenuBarState] = useState(window.innerWidth > 768);
+  const { isMd } = useMediaQuery();
+  const [menuBarState, setMenuBarState] = useState(isMd);
   const [showCategoryMenu, setshowCategoryMenu] = useState(false);
-  //----------------------------------------------
-  useEffect(() => {
-    const updateMedia = () => {
-      setMenuBarState(window.innerWidth > 768);
-    };
-    window.addEventListener("resize", updateMedia);
-    const Handler = (e) => {
-      if (!ref.current) {
-        return;
-      }
-      if (!ref.current.contains(e.target)) {
-        setMenuBarState(window.innerWidth > 768);
-        setshowCategoryMenu(false);
-      }
-    };
-    document.addEventListener("click", Handler, true);
+  /*--- close categorymenu ,reset menubar ------------------*/
 
-    return () => {
-      document.removeEventListener("click", Handler);
-      window.removeEventListener("resize", updateMedia);
-    };
-  }, []);
+  useClickOutside(ref, () => {
+    setMenuBarState(isMd);
+    setshowCategoryMenu(false);
+  });
+
+  // /*---------------- respond to resize --------------------*/
+  useEffect(() => {
+    setMenuBarState(isMd);
+  }, [isMd]);
   //---------------------------------------------------
   useGSAP(
     () => {
@@ -76,23 +67,12 @@ export default function SideBar({ className }) {
           <div
             className={` flex flex-col justify-between items-center px-4 py-8 bg-white shadow-md shadow-black w-[--sideBarWidth]`}
           >
-            <div className=" flex flex-col justify-center gap-8 items-center">
-              <Link to="/home" className="hidden md:block">
-                <img
-                  width="49"
-                  height="50"
-                  src="https://burek.intexagency.com/wp-content/uploads/2022/05/logo-small.svg"
-                  alt="logo"
-                  decoding="async"
-                />
-              </Link>
-              <div className="flex flex-col justify-center items-center relative pb-4 gap-1 border-2 p-2 rounded-lg">
-                <div className="font-bold">10:00</div>
-                <div className="text-sm">to</div>
-                <div className="font-bold">20:30</div>
-                <div className="absolute  top-full -translate-y-1/2 text-xl">
-                  <LuClock />
-                </div>
+            <div className="flex flex-col justify-center items-center relative pb-4 gap-1 border-2 p-2 rounded-lg ">
+              <div className="font-bold">10:00</div>
+              <div className="text-sm">to</div>
+              <div className="font-bold">20:30</div>
+              <div className="absolute  top-full -translate-y-1/2 text-xl">
+                <LuClock />
               </div>
             </div>
             <div
@@ -113,7 +93,7 @@ export default function SideBar({ className }) {
             <div className="text-xl border-2 p-2 rounded-lg  relative group">
               <Link to="tel:+380 98 334 3344">
                 <FaPhoneAlt className="text-black" />
-                <div className="border-2  absolute left-full top-0 w-max h-full  items-center group-support-hover:hover:flex hidden bg-white rounded-lg p-2 text-sm font-bold">
+                <div className="border-2  absolute left-full top-0 w-max h-full  items-center support-hover:group-hover:flex hidden bg-white rounded-lg p-2 text-sm font-bold">
                   +380 98 334 3344
                 </div>
               </Link>

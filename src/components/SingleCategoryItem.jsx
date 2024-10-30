@@ -56,13 +56,15 @@ export default function SingleCategoryItem({ meal, className }) {
       <div
         className="absolute top-0 left-0 bottom-0 right-1/3 bg-secondary z-0 
       "
-      ></div>
+      />
 
-      <div className="p-4 bg-secondary  [border-radius:5px_5px_30px_0]  overflow-hidden  z-10  relative ">
+      <div className="p-4 bg-secondary  [border-radius:5px_5px_30px_0]  overflow-hidden  z-10  relative w-full h-72">
         <img
           src={meal.strMealThumb}
           alt={meal.strMeal}
-          className="w-full h-full object-cover [border-radius:5px_5px_30px_0]"
+          className="size-full object-cover [border-radius:5px_5px_30px_0]"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
@@ -97,7 +99,7 @@ export default function SingleCategoryItem({ meal, className }) {
       </div>
 
       {showToaster && (
-        <Toaster close={() => setShowToaster(false)} time={5000}>
+        <Toaster close={() => setShowToaster(false)} time={2000}>
           <span className="font-bold">{countTemp} x </span>
           {meal.strMeal}
           <span className="font-bold">Added Successfully </span>
