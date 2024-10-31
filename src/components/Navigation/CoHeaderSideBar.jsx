@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-
 import SideBar from "./SideBar";
 import Header from "./Header/Header";
+import { Logo } from "../../assets";
 
 //--------------------------------------------------------
 
@@ -15,10 +15,11 @@ export default function CoHeaderSideBar() {
         <img
           width="49"
           height="50"
-          src="https://burek.intexagency.com/wp-content/uploads/2022/05/logo-small.svg"
-          alt="logo"
+          src={Logo}
+          alt="BUREK"
           decoding="async"
-        ></img>
+          loading="lazy"
+        />
       </Link>
 
       <Header className="fixed bottom-0 right-0 top-[--coHeaderHeight]  md:bottom-auto md:top-0  w-[--sideBarWidth]" />

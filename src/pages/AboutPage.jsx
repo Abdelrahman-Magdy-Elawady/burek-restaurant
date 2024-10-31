@@ -4,61 +4,88 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import Details from "../components/Details";
 import ApplyForm from "../components/ApplyForm";
 import Button from "../components/Buttons/Button";
-import footerbgImg from "../assets/franchisepageImgs/footer-bg.jpg";
+import {
+  about_footer,
+  about_hero_160,
+  about_hero_300,
+  about_hero_600,
+  about_hero_768,
+  about_hero_1024,
+  about_hero_1040,
+  about_q_113,
+  about_q_243,
+  about_q_600,
+  about_location_sykhiv,
+  about_location_frank,
+  about_location_oldtown,
+  about_location_city,
+} from "../assets";
 //------------------------------------------------------------------
 const restaurants = [
   {
-    img: "https://burek.intexagency.com/wp-content/uploads/2022/06/burek-bold-copy-zaklad-200x144.jpg",
+    img: about_location_sykhiv,
     location: "sykhiv disctrict",
     restaurantName: "Burek in King Cross leopolis",
     directions:
       "The restaurant is situated in food court in King Cross Leopolis mall",
-    map: {
-      src: "https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884.png",
-      srcSet:
-        "https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884.png 1263w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884-300x194.png 300w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884-1024x661.png 1024w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884-768x496.png 768w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884-600x387.png 600w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884-160x103.png 160w",
-    },
+    map: (
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5151.198580186347!2d24.065072!3d49.7936!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1730363182974!5m2!1sen!2sus"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        className="size-full object-cover"
+      />
+    ),
     address: "Stryiska str. 183",
     detailedLocation: "2nd floor, foodcourt",
   },
   {
-    img: "https://burek.intexagency.com/wp-content/uploads/2022/06/letnee-kafe-3-200x144.jpeg",
+    img: about_location_oldtown,
     location: "old town ",
     restaurantName: "Burek Lesia Urkainka str.",
     directions:
       "The restaurant is situated in on the Lesia Ukrainka str. near Les Kurbas Theatre",
-    map: {
-      src: "https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843.png",
-      srcSet:
-        "https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843.png 1419w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843-300x181.png 300w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843-1024x618.png 1024w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843-768x464.png 768w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843-600x362.png 600w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843-160x97.png 160w",
-    },
+    map: (
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d10296.25691789343!2d23.981713!3d49.822458!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1730363458876!5m2!1sen!2sus"
+        className="size-full object-cover"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+    ),
     address: "8, Lesia Ukrainka str.",
     detailedLocation: "Les Kurbas Theatre bus stop",
   },
   {
-    img: "https://burek.intexagency.com/wp-content/uploads/2022/06/704568eebeb49c347cb9bacc371cbefc-200x144.jpeg",
+    img: about_location_frank,
     location: "Frankivskiy disctrict",
     restaurantName: "Burek Forum Lviv",
     directions: "Situated in the Forum Lviv city mall in the food court",
-    map: {
-      src: "https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884.png",
-      srcSet:
-        "https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884.png 1263w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884-300x194.png 300w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884-1024x661.png 1024w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884-768x496.png 768w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884-600x387.png 600w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_16-58-57-e1618927670884-160x103.png 160w",
-    },
+    map: (
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d10296.332255843921!2d24.016878!3d49.822104!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1730363546582!5m2!1sen!2sus"
+        className="size-full object-cover"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+    ),
     address: "43, Dzherelna str.",
     detailedLocation: "3rd floor, food court",
   },
   {
-    img: "https://burek.intexagency.com/wp-content/uploads/2022/06/bien-eleve-facade-david_grimbert-200x144.jpeg",
+    img: about_location_city,
     location: "City center",
     restaurantName: "Rynok sqaure Burek",
     directions:
       "Situated in the heart of city Lviv in the city center ( Old town )",
-    map: {
-      src: "https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843.png",
-      srcSet:
-        "https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843.png 1419w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843-300x181.png 300w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843-1024x618.png 1024w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843-768x464.png 768w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843-600x362.png 600w, https://burek.intexagency.com/wp-content/uploads/2021/04/2021-04-20_17-03-03-e1618927629843-160x97.png 160w",
-    },
+    map: (
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d10550.432908244027!2d22.290645!3d48.617342!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1730363620274!5m2!1sen!2sus"
+        className="size-full object-cover"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+    ),
     address: "2, Rynok sqare",
     detailedLocation: "Main entrance near the City Hall Building",
   },
@@ -75,10 +102,10 @@ export default function AboutPage() {
       md:pl-[--md-page-left-padding]  md:pt-[--md-page-top-padding]  
       p-[--page-padding]  bg-bgColor text-secondary"
     >
-      <div className="grid xl:grid-cols-2 xl:grid-rows-1 xl:min-h-[660px]">
-        <div>
-          <h1 className=" mb-8">About Us</h1>
-          <div className="flex flex-col gap-8 md:px-16 px-8 my-8">
+      <div className="grid xl:grid-cols-2 xl:grid-rows-1 gap-8">
+        <div className=" flex flex-col gap-8 ">
+          <h1 className="">About Us</h1>
+          <div className="flex-1 flex flex-col justify-evenly md:px-16 px-8 gap-8">
             <div>
               Our journey began in 2018 with the opening of our first café in
               Lviv, aiming to change people’s perceptions of chebureks.
@@ -98,15 +125,16 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-        <div className="relative h-full xl:max-h-[660px]">
+        <div className="relative xl:h-[calc(100vh-var(--md-page-top-padding)-var(--page-padding))]">
           <div className="w-full xl:h-full">
             <img
-              src="https://burek.intexagency.com/wp-content/uploads/2022/05/4659865_burek-small-e1653672880337.jpg"
+              src={about_hero_1040}
               className="size-full  object-center object-cover"
               alt=""
               decoding="async"
-              srcSet="https://burek.intexagency.com/wp-content/uploads/2022/05/4659865_burek-small-e1653672880337.jpg 1071w, https://burek.intexagency.com/wp-content/uploads/2022/05/4659865_burek-small-e1653672880337-300x185.jpg 300w, https://burek.intexagency.com/wp-content/uploads/2022/05/4659865_burek-small-e1653672880337-1024x631.jpg 1024w, https://burek.intexagency.com/wp-content/uploads/2022/05/4659865_burek-small-e1653672880337-768x473.jpg 768w, https://burek.intexagency.com/wp-content/uploads/2022/05/4659865_burek-small-e1653672880337-600x370.jpg 600w, https://burek.intexagency.com/wp-content/uploads/2022/05/4659865_burek-small-e1653672880337-160x99.jpg 160w"
-              sizes="(max-width: 1071px) 100vw, 1071px"
+              loading="lazy"
+              srcSet={`${about_hero_160} 160w,${about_hero_300} 300w,${about_hero_600} 600w,${about_hero_768} 768w,${about_hero_1024} 1024w,${about_hero_1040} 1040w`}
+              sizes="(max-width: 1040px) 100vw, 1040px"
             />
           </div>
           <div className="md:absolute md:bottom-0 p-6">
@@ -119,7 +147,7 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-      <div className="mb-8">
+      <div className="mb-24">
         <h1 className="my-8">Our Product</h1>
         <div className="md:grid md:grid-cols-2 md:grid-rows-2 gap-4">
           {[
@@ -138,14 +166,14 @@ export default function AboutPage() {
         </div>
       </div>
       {/*----------------------Restaurants-------------------*/}
-      <div className="mb-8">
+      <div className="mb-24">
         <h1 className="capitalize mb-8">our restaurants</h1>
         <div
           className="xl:grid xl:grid-cols-2 xl:grid-rows-1 gap-4
           xl:items-center 
         "
         >
-          <div className="flex flex-col gap-4 xl:h-[calc(100vh-var(--md-page-top-padding)-var(--page-padding))] overflow-auto mb-8 xl:m-0">
+          <div className="flex flex-col gap-4 xl:h-[calc(100vh-var(--md-page-top-padding)-var(--page-padding))] overflow-auto mb-8 xl:m-0 overscroll-contain">
             {restaurants.map((restaurant, index) => (
               <div
                 key={index}
@@ -174,13 +202,8 @@ export default function AboutPage() {
               <FaMapMarkerAlt />
               {restaurantLocation.location}
             </div>
-            <div className="border-2 border-red-700 h-96">
-              <img
-                className=" size-full object-cover object-center"
-                src={restaurantLocation?.map?.src}
-                alt=""
-                srcSet={restaurantLocation?.map?.srcSet}
-              />
+            <div className="border-2 border-red-700 h-96 ">
+              {restaurantLocation?.map}
             </div>
             <div className="grid grid-cols-2 grid-rows-2 gap-2">
               <div className="flex items-center gap-2 font-semibold">
@@ -209,15 +232,8 @@ export default function AboutPage() {
               },
               {
                 summary: "What is delivery cost?",
-                content: (
-                  <div>
-                    For your convenience we devided Lviv city into 3 delivery
-                    {/* zones: green, yellow and red. Details of each one you can find
-                  <a href="https://burek.intexagency.com/payment-delivery/">
-                    here
-                  </a> */}
-                  </div>
-                ),
+                content:
+                  "For your convenience we devided Lviv city into 3 delivery",
               },
               {
                 summary: "Can i pay with card?",
@@ -243,19 +259,23 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-        <div>
+        <div className="max-h-96 xl:max-h-[28rem]">
           <img
             className="size-full object-center object-cover [border-radius:0_0_0_30px]"
-            src="https://burek.intexagency.com/wp-content/uploads/2022/06/75beeb6bf3293b36b4dcf833b464e381.jpeg"
+            src={about_q_600}
             alt=""
+            decoding="async"
+            loading="lazy"
+            srcSet={`${about_q_600} 600w,${about_q_113} 113w,${about_q_243} 243w`}
+            sizes="(max-width: 600px) 100vw, 600px"
           />
         </div>
       </div>
       <div
-        className="mt-16 text-white flex flex-col justify-center gap-16  font-bold p-8 h-[640px]  md:items-start items-center text-center"
+        className="mt-16 text-white flex flex-col justify-center gap-16  font-bold p-8 h-[640px]  md:items-start items-center text-center md:text-start"
         style={{
-          backgroundImage: `url(${footerbgImg}), linear-gradient(90deg,orange ,transparent)`,
-          backgroundPosition: "left 10% bottom 20%",
+          backgroundImage: `url(${about_footer}), linear-gradient(90deg,orange ,transparent)`,
+          backgroundPosition: "left 65% bottom 40%",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundBlendMode: "multiply",

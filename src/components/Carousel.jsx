@@ -1,13 +1,23 @@
 import { useEffect, useRef, useState } from "react";
-import { MdOutlineArrowLeft } from "react-icons/md";
-import { MdOutlineArrowRight } from "react-icons/md";
-import { MdPauseCircle } from "react-icons/md";
+import {
+  MdOutlineArrowLeft,
+  MdPauseCircle,
+  MdOutlineArrowRight,
+} from "react-icons/md";
 import { IoPlayCircle } from "react-icons/io5";
 
-export default function Carousel({ children, className }) {
+export default function Carousel({
+  children,
+  className,
+  autoplay = false,
+  styles = {
+    arrows: "",
+    playButton: "",
+  },
+}) {
   const [trans_x, setTrans_x] = useState(0);
   const autoplayRef = useRef();
-  const [pauseAutoplay, setPauseAutoplay] = useState(true);
+  const [pauseAutoplay, setPauseAutoplay] = useState(!autoplay);
 
   useEffect(() => {
     if (!pauseAutoplay) {
@@ -21,20 +31,11 @@ export default function Carousel({ children, className }) {
   }, [pauseAutoplay]);
 
   const toLeft = () => {
-    setTrans_x((trans_x) => {
-      if (trans_x + 1 < children.length) {
-        return trans_x + 1;
-      }
-      return 0;
-    });
+    setTrans_x((prev) => (prev + 1) % children.length);
   };
+
   const toRight = () => {
-    setTrans_x((trans_x) => {
-      if (trans_x - 1 >= 0) {
-        return trans_x - 1;
-      }
-      return children.length - 1;
-    });
+    setTrans_x((prev) => (prev - 1 + children.length) % children.length);
   };
 
   const toggleAutoplay = () => {
@@ -43,7 +44,7 @@ export default function Carousel({ children, className }) {
   return (
     <div className={`${className}  relative  overflow-hidden`}>
       <div
-        className="h-full flex transition-transform duration-300"
+        className="h-full flex transition-transform duration-500 ease-in-out"
         style={{
           width: `calc(${children.length}*100%)`,
           transform: `translate(calc(-${trans_x * 100}%/${
@@ -54,20 +55,27 @@ export default function Carousel({ children, className }) {
         {children}
       </div>
 
-      <MdOutlineArrowLeft
-        className="support-hover:hover:cursor-pointer text-6xl absolute top-1/2 -translate-y-1/2 fill-white support-hover:hover:fill-secondary"
+      <button
         onClick={() => toLeft()}
-      />
-      <MdOutlineArrowRight
-        className="support-hover:hover:cursor-pointer text-6xl absolute top-1/2 -translate-y-1/2 right-0 fill-white support-hover:hover:fill-secondary"
+        disabled={!pauseAutoplay}
+        className={`support-hover:hover:cursor-pointer text-6xl text-white support-hover:hover:text-secondary ${styles?.arrows}`}
+      >
+        <MdOutlineArrowLeft className="absolute top-1/2 -translate-y-1/2" />
+      </button>
+
+      <button
         onClick={() => toRight()}
-      />
-      <div
-        className="absolute bottom-5 right-5 text-3xl  text-white support-hover:hover:text-secondary"
+        disabled={!pauseAutoplay}
+        className={`support-hover:hover:cursor-pointer text-6xl text-white support-hover:hover:text-secondary ${styles?.arrows}`}
+      >
+        <MdOutlineArrowRight className="absolute top-1/2 -translate-y-1/2 right-0" />
+      </button>
+      <button
+        className={`absolute bottom-5 right-5 text-3xl  text-white support-hover:hover:text-secondary support-hover:hover:cursor-pointer ${styles?.playButton}`}
         onClick={() => toggleAutoplay()}
       >
         {pauseAutoplay ? <MdPauseCircle /> : <IoPlayCircle />}
-      </div>
+      </button>
     </div>
   );
 }

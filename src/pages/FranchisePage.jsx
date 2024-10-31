@@ -2,15 +2,27 @@ import Button from "../components/Buttons/Button";
 import { Link } from "react-router-dom";
 import { Fragment, useState } from "react";
 //----------------------------------------------------
-import benefit1Img from "../assets/franchisepageImgs/benefit-1.svg";
-import benefit2Img from "../assets/franchisepageImgs/benefit-2.svg";
-import benefit3Img from "../assets/franchisepageImgs/benefit-3.svg";
-import benefit4Img from "../assets/franchisepageImgs/benefit-4.svg";
-import benefit5Img from "../assets/franchisepageImgs/benefit-5.svg";
-import benefit6Img from "../assets/franchisepageImgs/benefit-6.svg";
-import _3yearsImg from "../assets/franchisepageImgs/3years.svg";
-import _100KImg from "../assets/franchisepageImgs/100K.svg";
-import footerbgImg from "../assets/franchisepageImgs/footer-bg.jpg";
+import {
+  num_1,
+  num_2,
+  num_3,
+  franchise_3years,
+  franchise__100k,
+  franchise_benefit_1,
+  franchise_benefit_2,
+  franchise_benefit_3,
+  franchise_benefit_4,
+  franchise_benefit_5,
+  franchise_benefit_6,
+  franchise_footer_bg,
+  franchise_hero_110,
+  franchise_hero_236,
+  franchise_hero_600,
+  franchise_hero_768,
+  franchise_hero_806,
+  franchise_hero_1061,
+} from "../assets";
+
 import { FaPhoneAlt } from "react-icons/fa";
 import { TbMessages } from "react-icons/tb";
 import { FaFacebookF } from "react-icons/fa";
@@ -77,7 +89,7 @@ export default function FranchisePage() {
             <div className="grid grid-cols-2 grid-rows-3 gap-y-12 items-center justify-items-center">
               {[
                 {
-                  number: 1,
+                  number: num_1,
                   category: "Technology",
                   paragraph:
                     "The perfect product is created. It guarantees constant product turnover and a minimum percentage of write-offs.",
@@ -85,7 +97,7 @@ export default function FranchisePage() {
                   benefitPercentage: "1%",
                 },
                 {
-                  number: 2,
+                  number: num_2,
                   category: "System",
                   paragraph:
                     "We have developed and tested a business model and taken into account all details related to suppliers and consumers.",
@@ -93,7 +105,7 @@ export default function FranchisePage() {
                   benefitPercentage: "up to 20%",
                 },
                 {
-                  number: 3,
+                  number: num_3,
                   category: "Experience",
                   paragraph:
                     "Our experience will help you use only proven methods of work. And the more experience - the less risk.",
@@ -102,8 +114,12 @@ export default function FranchisePage() {
                 },
               ].map((row) => (
                 <Fragment key={row.benefit}>
-                  <div className="font-bold text-5xl text-primary">
-                    {row.number}
+                  <div>
+                    <img
+                      src={row.number}
+                      alt=""
+                      className="size-full object-cover object-center"
+                    />
                   </div>
                   <div className="flex flex-col gap-4">
                     <div className="font-bold text-xl">{row.category}</div>
@@ -130,12 +146,12 @@ export default function FranchisePage() {
           <div className="md:h-full  overflow-hidden">
             <img
               className="object-cover h-full w-full"
-              src="https://burek.com.ua/wp-content/uploads/2021/04/img_5305-1-1.jpg"
+              src={franchise_hero_1061}
               alt=""
               loading="lazy"
-              srcSet="https://burek.com.ua/wp-content/uploads/2021/04/img_5305-1-1.jpg 1061w, https://burek.com.ua/wp-content/uploads/2021/04/img_5305-1-1-236x300.jpg 236w, https://burek.com.ua/wp-content/uploads/2021/04/img_5305-1-1-806x1024.jpg 806w, https://burek.com.ua/wp-content/uploads/2021/04/img_5305-1-1-768x976.jpg 768w, https://burek.com.ua/wp-content/uploads/2021/04/img_5305-1-1-600x762.jpg 600w, https://burek.com.ua/wp-content/uploads/2021/04/img_5305-1-1-110x140.jpg 110w"
+              srcSet={`${franchise_hero_1061} 1061w,${franchise_hero_236} 236w,${franchise_hero_806} 806w,${franchise_hero_768} 768w,${franchise_hero_600} 600w,${franchise_hero_110} 110w`}
               sizes="(max-width: 1061px) 100vw, 1061px"
-            ></img>
+            />
           </div>
         </div>
       </div>
@@ -146,37 +162,38 @@ export default function FranchisePage() {
         <div className=" flex flex-wrap justify-center gap-8">
           {[
             {
-              img: benefit1Img,
+              img: franchise_benefit_1,
               benefit: "Modern website",
               paragraph:
                 "We launch a fully working site, constantly maintain and update it",
             },
             {
-              img: benefit2Img,
+              img: franchise_benefit_2,
               benefit: "Order with smartphone",
               paragraph:
                 "70% of customers order from mobile devices, so we took care of the convenience of ordering from phones.",
             },
             {
-              img: benefit3Img,
+              img: franchise_benefit_3,
               benefit: "Brand advertising",
               paragraph:
                 "Everything has already been tested and configured. We launch the most effective promotion models",
             },
             {
-              img: benefit4Img,
+              img: franchise_benefit_4,
               benefit: "Personnel training",
               paragraph:
                 "During 3 years thousands of people came to us for various vacancies. We have experience to share with",
             },
             {
-              img: benefit5Img,
+              img: franchise_benefit_5,
+
               benefit: "Call-center",
               paragraph:
                 "Professional operators quickly serve a large number of customers from all cities and industries",
             },
             {
-              img: benefit6Img,
+              img: franchise_benefit_6,
               benefit: "Working system",
               paragraph:
                 "All orders are placed through the CRM-system and in a convenient format are transferred to the administrator of the institution",
@@ -197,11 +214,11 @@ export default function FranchisePage() {
         <Carousel className=" w-full md:w-2/3 h-[500px]">
           {[
             {
-              img: _3yearsImg,
+              img: franchise_3years,
               paragraph: "of successfull business",
             },
             {
-              img: _100KImg,
+              img: franchise__100k,
               paragraph: "satisfied customers",
             },
           ].map((row) => (
@@ -226,21 +243,21 @@ export default function FranchisePage() {
                   backgroundImage: "linear-gradient(90deg,orange,white,orange)",
                   clipPath: "polygon(0 0,0 100%,100% 100%)",
                 }}
-              ></div>
+              />
               <div
                 className="absolute bottom-0 left-0 w-[10%] h-[10%] "
                 style={{
                   backgroundImage: "linear-gradient(90deg,orange,white,orange)",
                   clipPath: "polygon(0 0,100% 0%,100% 100%)",
                 }}
-              ></div>
+              />
               <div
                 className="absolute top-0 left-0 w-[10%] h-[10%] "
                 style={{
                   backgroundImage: "linear-gradient(90deg,orange,white,orange)",
                   clipPath: "polygon(100% 0%,100% 100%,0 100%)",
                 }}
-              ></div>
+              />
             </div>
           ))}
         </Carousel>
@@ -250,7 +267,7 @@ export default function FranchisePage() {
         <div
           className="mt-16 text-white flex flex-col justify-center gap-16  font-bold p-8 h-[640px]  md:items-start items-center text-center"
           style={{
-            backgroundImage: `url(${footerbgImg})`,
+            backgroundImage: `url(${franchise_footer_bg})`,
             backgroundPosition: "left 10% bottom 20%",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",

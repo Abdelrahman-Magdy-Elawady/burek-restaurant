@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Link } from "react-router-dom";
 import { useMediaQuery, useClickOutside } from "../../../hooks";
+import { Logo } from "../../../assets";
 
 //-----------------------------------------------
 export default function Header({ className }) {
@@ -56,14 +57,8 @@ export default function Header({ className }) {
           className={`${className} menu flex flex-col-reverse justify-evenly   items-center p-3 md:flex-row  md:justify-end md:px-6 md:pt-6 md:gap-8 md:w-full text-black font-bold bg-white shadow-md shadow-black 
           md:shadow-sm `}
         >
-          <Link to="/home" className="hidden md:block flex-1 pl-4">
-            <img
-              width="49"
-              height="50"
-              src="https://burek.intexagency.com/wp-content/uploads/2022/05/logo-small.svg"
-              alt="logo"
-              decoding="async"
-            />
+          <Link to="/home" className="hidden md:block pl-4 mr-auto ">
+            <img src={Logo} alt="BUREK" decoding="async" />
           </Link>
           <Navbar />
           <ShoppingCart />

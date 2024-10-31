@@ -1,18 +1,81 @@
 import Button from "../components/Buttons/Button";
-import num1 from "../assets/num1.svg";
-import num2 from "../assets/num2.svg";
-import num3 from "../assets/num3.svg";
-import num4 from "../assets/num4.svg";
-import num5 from "../assets/num5.svg";
+import { num_1, num_2, num_3, num_4, num_5 } from "../assets";
 import emptyIcon from "../assets/emptyCart.svg";
 import { useForm } from "react-hook-form";
 import Input from "../components/Input";
+import Carousel from "../components/Carousel";
 import { useState } from "react";
+import {
+  vacancies_cashier_1024,
+  vacancies_cashier_1041,
+  vacancies_cashier_160,
+  vacancies_cashier_300,
+  vacancies_cashier_600,
+  vacancies_cashier_768,
+  vacancies_chef_1024,
+  vacancies_chef_1041,
+  vacancies_chef_160,
+  vacancies_chef_300,
+  vacancies_chef_600,
+  vacancies_chef_768,
+} from "../assets";
+
+const heroCarousel = [
+  [
+    [vacancies_cashier_1041, 1041],
+    [vacancies_cashier_1024, 1024],
+    [vacancies_cashier_768, 768],
+    [vacancies_cashier_600, 600],
+    [vacancies_cashier_300, 300],
+    [vacancies_cashier_160, 160],
+  ],
+  [
+    [vacancies_chef_1041, 1041],
+    [vacancies_chef_1024, 1024],
+    [vacancies_chef_768, 768],
+    [vacancies_chef_600, 600],
+    [vacancies_chef_300, 300],
+    [vacancies_chef_160, 160],
+  ],
+].map((img, index) => (
+  <div key={index} className="size-full">
+    <img
+      src={img[0][0]}
+      alt=""
+      srcSet={generateSrcSet(img)}
+      className="object-cover object-center size-full"
+      loading="lazy"
+      sizes="(max-width: 1041px) 100vw, 1041px"
+    />
+  </div>
+));
+function generateSrcSet(img) {
+  return img.reduce(
+    (prev, current) => prev + `${current[0]}  ${current[1]}w,`,
+    ""
+  );
+}
+
+const vacancies = [
+  {
+    vacancy: "cashier",
+    placing: "21, Sykhivska str",
+    type: "Part-time",
+    decribtion:
+      "Сashier is a face of our company, so we are searching for the most friendly team, communication with which will bring incredible satisfaction for the customer. Ready to work really effectively? Then join our team!",
+  },
+  {
+    vacancy: "Chef",
+    placing: "Lviv",
+    type: "Full-time",
+    decribtion:
+      "If you feel that the kitchen is your sincere hobby, you can't imagine life without chebers, you know how or want to learn how to cook - then we are waiting for you! We are looking for young and ambitious people who are passionate about the kitchen and their work!",
+  },
+];
 
 //------------------------------------------
 export default function VacanciesPage() {
   const [showVacancy, setShowVacancy] = useState({});
-
   const formProperties = useForm();
   const {
     register,
@@ -20,25 +83,6 @@ export default function VacanciesPage() {
     reset,
     formState: { isSubmitting, errors },
   } = formProperties;
-  //-----------------------------------------------------
-
-  const vacancies = [
-    {
-      vacancy: "cashier",
-      placing: "21, Sykhivska str",
-      type: "Part-time",
-      decribtion:
-        "Сashier is a face of our company, so we are searching for the most friendly team, communication with which will bring incredible satisfaction for the customer. Ready to work really effectively? Then join our team!",
-    },
-    {
-      vacancy: "Chef",
-      placing: "Lviv",
-      type: "Full-time",
-      decribtion:
-        "If you feel that the kitchen is your sincere hobby, you can't imagine life without chebers, you know how or want to learn how to cook - then we are waiting for you! We are looking for young and ambitious people who are passionate about the kitchen and their work!",
-    },
-  ];
-
   //-----------------------------------------------------
   const submitHandler = async (data) => {
     //send data to backend ,but i don't have backend now
@@ -83,31 +127,31 @@ export default function VacanciesPage() {
             <div className="flex flex-col gap-8">
               {[
                 {
-                  imgSrc: num1,
+                  imgSrc: num_1,
                   title: "You become part of the Burek Family",
                   content:
                     "Burek family are young individuals who are full of thirsty for knowledge and self-development.",
                 },
                 {
-                  imgSrc: num2,
+                  imgSrc: num_2,
                   title: "We encourage career growth",
                   content:
                     "We appreciate enterprising employees and offer career growth to the most active.",
                 },
                 {
-                  imgSrc: num3,
+                  imgSrc: num_3,
                   title: "We welcome mutual assistance and respect each other",
                   content:
                     "Help and respect are key values ​​in our family, so don't be afraid to start your career with us.",
                 },
                 {
-                  imgSrc: num4,
+                  imgSrc: num_4,
                   title: "We are actively scaling up",
                   content:
                     "We have been on the market for 3 years, but we are still flexible to changes and offer you to join the formation of the history of the big brand.",
                 },
                 {
-                  imgSrc: num5,
+                  imgSrc: num_5,
                   title: "We care about corporate culture",
                   content:
                     "We know what we want, we have a main goal and we are taking big steps to achieve it. Each of our employees is an important part of the company.",
@@ -118,7 +162,7 @@ export default function VacanciesPage() {
                     <img
                       src={row.imgSrc}
                       alt={index + 1}
-                      className="size-full object-cover object-center"
+                      className="size-full object-contain object-center"
                     />
                   </div>
                   <div className="flex flex-col gap-4">
@@ -133,10 +177,16 @@ export default function VacanciesPage() {
           </div>
         </div>
         <div className="md:h-[calc(100vh-var(--md-page-top-padding)-var(--page-padding))] md:sticky md:top-[--md-page-top-padding]">
-          <img
-            className="size-full object-cover object-center [border-radius:0_0_0_30px]"
-            src="https://burek.intexagency.com/wp-content/uploads/2022/06/burek-bold-copy-zaklad.jpg"
-          />
+          <Carousel
+            autoplay={true}
+            className="h-full"
+            styles={{
+              arrows: "support-hover:hover:text-primary",
+              playButton: "support-hover:hover:text-primary",
+            }}
+          >
+            {heroCarousel}
+          </Carousel>
         </div>
       </div>
       <div id="Vacancies">
