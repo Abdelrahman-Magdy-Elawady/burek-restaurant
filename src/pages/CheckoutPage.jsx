@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Table from "../components/Table";
 import CheckoutForm from "../components/checkout/CheckoutForm";
-import emptyCartIcon from "../assets/emptyCart.png";
+import { emptyCart } from "../assets";
 
 //-----------------------------------------------------
 export default function CheckoutPage() {
@@ -61,7 +61,7 @@ export default function CheckoutPage() {
       ) : (
         <div className="flex flex-col items-center text-center gap-8">
           <div className="w-1/2">
-            <img src={emptyCartIcon} alt="" />
+            <img src={emptyCart} alt="" />
           </div>
           <div className="font-bold text-2xl capitalize">
             Oops ... no items have been added to the cart yet

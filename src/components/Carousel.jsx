@@ -11,8 +11,8 @@ export default function Carousel({
   className,
   autoplay = false,
   styles = {
-    arrows: "",
-    playButton: "",
+    arrows: "support-hover:hover:text-secondary",
+    playButton: "support-hover:hover:text-secondary",
   },
 }) {
   const [trans_x, setTrans_x] = useState(0);
@@ -58,7 +58,7 @@ export default function Carousel({
       <button
         onClick={() => toLeft()}
         disabled={!pauseAutoplay}
-        className={`support-hover:hover:cursor-pointer text-6xl text-white support-hover:hover:text-secondary ${styles?.arrows}`}
+        className={`support-hover:hover:cursor-pointer text-6xl text-white  ${styles?.arrows}`}
       >
         <MdOutlineArrowLeft className="absolute top-1/2 -translate-y-1/2" />
       </button>
@@ -66,12 +66,12 @@ export default function Carousel({
       <button
         onClick={() => toRight()}
         disabled={!pauseAutoplay}
-        className={`support-hover:hover:cursor-pointer text-6xl text-white support-hover:hover:text-secondary ${styles?.arrows}`}
+        className={`support-hover:hover:cursor-pointer text-6xl text-white  ${styles?.arrows}`}
       >
         <MdOutlineArrowRight className="absolute top-1/2 -translate-y-1/2 right-0" />
       </button>
       <button
-        className={`absolute bottom-5 right-5 text-3xl  text-white support-hover:hover:text-secondary support-hover:hover:cursor-pointer ${styles?.playButton}`}
+        className={`absolute bottom-5 right-5 text-3xl  text-white  support-hover:hover:cursor-pointer ${styles?.playButton}`}
         onClick={() => toggleAutoplay()}
       >
         {pauseAutoplay ? <MdPauseCircle /> : <IoPlayCircle />}
