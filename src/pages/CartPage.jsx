@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import emptyCartIcon from "../assets/emptyCart.png";
+import { emptyCart } from "../assets";
 import CartListItem from "../components/CartListItem";
 import Button from "../components/Buttons/Button";
 import { CgDanger } from "react-icons/cg";
@@ -21,7 +21,7 @@ export default function CartPage() {
       <div className="flex flex-col items-center justify-center text-center gap-8">
         <div className="w-60 md:w-96">
           <img
-            src={emptyCartIcon}
+            src={emptyCart}
             alt="empty-cart"
             role="presentation"
             loading="lazy"

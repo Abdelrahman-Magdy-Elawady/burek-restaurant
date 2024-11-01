@@ -50,3 +50,6 @@ export { default as vacancies_cashier_600 } from "./images/vacancies/franchise-6
 export { default as vacancies_cashier_768 } from "./images/vacancies/franchise-768x620.jpg";
 export { default as vacancies_cashier_1024 } from "./images/vacancies/franchise-1024x827.jpg";
 export { default as vacancies_cashier_1041 } from "./images/vacancies/franchise1041.jpg";
+export { default as vacancies_empty } from "./images/vacancies/emptyVacancy.svg";
+/*----------------------cart page---------------------------*/
+export { default as emptyCart } from "./images/cart/emptyCart.png";

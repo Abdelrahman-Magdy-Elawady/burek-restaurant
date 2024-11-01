@@ -1,11 +1,11 @@
 import Button from "../components/Buttons/Button";
 import { num_1, num_2, num_3, num_4, num_5 } from "../assets";
-import emptyIcon from "../assets/emptyCart.svg";
 import { useForm } from "react-hook-form";
 import Input from "../components/Input";
 import Carousel from "../components/Carousel";
 import { useState } from "react";
 import {
+  vacancies_empty,
   vacancies_cashier_1024,
   vacancies_cashier_1041,
   vacancies_cashier_160,
@@ -297,7 +297,7 @@ export default function VacanciesPage() {
               </>
             ) : (
               <div className=" text-2xl font-semibold flex flex-col justify-center items-center gap-2 capitalize text-center">
-                <img src={emptyIcon} alt="" />
+                <img src={vacancies_empty} alt="" />
                 you haven&apos;t choosed a vacancy yet
               </div>
             )}
