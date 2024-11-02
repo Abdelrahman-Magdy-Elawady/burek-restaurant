@@ -1,9 +1,10 @@
 import { LiaFacebookF } from "react-icons/lia";
 import { Link } from "react-router-dom";
-
 import { cn } from "../../../Utils/cn";
+import { useSetActiveLink } from "../../../hooks";
 
-export default function Navbar({ activeIndex, activeIndexSetter }) {
+export default function Navbar() {
+  const { activeLink, activeLinkSetter } = useSetActiveLink();
   const links = [
     { label: "Franchise", path: "/franchise" },
     { label: "Reviews", path: "/reviews" },
@@ -28,7 +29,10 @@ export default function Navbar({ activeIndex, activeIndexSetter }) {
         key={link.label}
         {...link?.config}
         className={cn("group/link  relative", link?.config?.className)}
-        onClick={() => activeIndexSetter(index)}
+        onClick={() => {
+          if (link?.config?.type === "social") return;
+          activeLinkSetter(index);
+        }}
       >
         <div>{link.label}</div>
         <div
@@ -36,7 +40,7 @@ export default function Navbar({ activeIndex, activeIndexSetter }) {
             "absolute top-0 left-0 text-primary support-hover:group-hover/link:[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)] [clip-path:polygon(0_0,0_0,0_100%,0_100%)] duration-500 transition-[clip-path]",
             {
               "[clip-path:polygon(0_0,100%_0,100%_100%,0_100%)]":
-                index === activeIndex,
+                index === activeLink && link?.config?.type !== "social",
             }
           )}
         >
@@ -46,7 +50,7 @@ export default function Navbar({ activeIndex, activeIndexSetter }) {
           className={cn(
             "absolute right-0 top-full w-0 h-[.125rem] bg-primary support-hover:group-hover/link:w-full transition-[width] duration-500",
             {
-              "w-full": index === activeIndex,
+              "w-full": index === activeLink && link?.config?.type !== "social",
             }
           )}
         />

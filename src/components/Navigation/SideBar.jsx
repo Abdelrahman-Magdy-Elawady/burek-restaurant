@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { useClickOutside, useMediaQuery } from "../../hooks";
 
 //-----------------------------------------------
-export default function SideBar({ className }) {
+export default function SideBar({ className, ...rest }) {
   const ref = useRef(null);
   const { isMd } = useMediaQuery();
   const [menuBarState, setMenuBarState] = useState(isMd);
@@ -105,6 +105,7 @@ export default function SideBar({ className }) {
               onClick={() => {
                 setMenuBarState(window.innerWidth > 768);
                 setshowCategoryMenu(false);
+                rest?.onClick();
               }}
               className={`w-full md:w-60`}
             />

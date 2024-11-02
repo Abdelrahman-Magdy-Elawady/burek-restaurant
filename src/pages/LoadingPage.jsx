@@ -66,7 +66,7 @@ export default function LoadingPage() {
   );
   return (
     <div
-      className="fixed inset-0  z-[999]   pointer-events-none"
+      className="fixed inset-0  z-[999] pointer-events-none"
       ref={loadingRef}
     >
       {/*left*/}

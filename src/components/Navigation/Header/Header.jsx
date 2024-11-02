@@ -2,19 +2,17 @@ import Navbar from "./Navbar";
 import ShoppingCart from "./ShoppingCart";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseSharp } from "react-icons/io5";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Link } from "react-router-dom";
 import { useMediaQuery, useClickOutside } from "../../../hooks";
 import { Logo } from "../../../assets";
+import { useSetActiveLink } from "../../../hooks";
 
 //-----------------------------------------------
 export default function Header({ className }) {
-  const [activeIndex, setActiveIndex] = useState(-1);
-  const activeIndexSetter = useCallback((index) => {
-    setActiveIndex(index);
-  }, []);
+  const { activeLinkSetter } = useSetActiveLink();
   const matchmediaRef = useRef(null);
   const { isMd } = useMediaQuery();
   const [optionBarState, setOptionBarState] = useState(isMd);
@@ -64,15 +62,12 @@ export default function Header({ className }) {
           <Link
             to="/"
             className="hidden md:block pl-4 mr-auto"
-            onClick={() => setActiveIndex(-1)}
+            onClick={() => activeLinkSetter(-1)}
           >
             <img src={Logo} alt="BUREK" decoding="async" />
           </Link>
-          <Navbar
-            activeIndex={activeIndex}
-            activeIndexSetter={activeIndexSetter}
-          />
-          <ShoppingCart onClick={() => setActiveIndex(-1)} />
+          <Navbar />
+          <ShoppingCart onClick={() => activeLinkSetter(-1)} />
         </div>
       )}
     </div>
