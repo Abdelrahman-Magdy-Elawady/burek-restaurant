@@ -11,7 +11,7 @@ export default function CoHeaderSideBar() {
     <div className="bg-white text-black flex justify-between items-center p-4 shadow-md shadow-black h-[--coHeaderHeight] fixed top-0 left-0 right-0 z-50 isolate ">
       <SideBar className="fixed left-0 bottom-0 top-[--coHeaderHeight]  md:top-[--mdHeaderHeight]" />
 
-      <Link to="/home">
+      <Link to="/">
         <img
           width="49"
           height="50"

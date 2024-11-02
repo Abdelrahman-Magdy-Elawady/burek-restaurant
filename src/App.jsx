@@ -10,8 +10,6 @@ import FranchisePage from "./pages/FranchisePage";
 import ReviewsPage from "./pages/ReviewsPage";
 import AboutPage from "./pages/AboutPage";
 import VacanciesPage from "./pages/VacanciesPage";
-import LoadingPage from "./pages/LoadingPage";
-
 //--------------------------------------------------
 
 const router = createBrowserRouter([
@@ -22,10 +20,6 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <LoadingPage />,
-      },
-      {
-        path: "/home",
         element: <HomePage />,
       },
       {

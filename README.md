@@ -8,7 +8,7 @@
 
 ### Links
 
-- Live Site URL: [burek-restaurant](https://burek-restaurant.vercel.app/home)
+- Live Site URL: [burek-restaurant](https://burek-restaurant.vercel.app)
 
 ### Screenshot
 
