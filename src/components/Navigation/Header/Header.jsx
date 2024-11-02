@@ -66,8 +66,13 @@ export default function Header({ className }) {
           >
             <img src={Logo} alt="BUREK" decoding="async" />
           </Link>
-          <Navbar />
-          <ShoppingCart onClick={() => activeLinkSetter(-1)} />
+          <Navbar onClick={() => setOptionBarState(isMd)} />
+          <ShoppingCart
+            onClick={() => {
+              activeLinkSetter(-1);
+              setOptionBarState(isMd);
+            }}
+          />
         </div>
       )}
     </div>

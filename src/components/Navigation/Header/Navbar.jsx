@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { cn } from "../../../Utils/cn";
 import { useSetActiveLink } from "../../../hooks";
 
-export default function Navbar() {
+export default function Navbar({ ...rest }) {
   const { activeLink, activeLinkSetter } = useSetActiveLink();
   const links = [
     { label: "Franchise", path: "/franchise" },
@@ -30,6 +30,7 @@ export default function Navbar() {
         {...link?.config}
         className={cn("group/link  relative", link?.config?.className)}
         onClick={() => {
+          rest.onClick();
           if (link?.config?.type === "social") return;
           activeLinkSetter(index);
         }}
