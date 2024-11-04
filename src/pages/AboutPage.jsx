@@ -186,7 +186,10 @@ export default function AboutPage() {
                   setRestaurantLocation(restaurant);
                   scrollTo(window, {
                     duration: 2,
-                    scrollTo: "#location-map",
+                    scrollTo: {
+                      y: "#location-map",
+                      offsetY: 116,
+                    },
                     ease: "power2",
                   });
                 }}
