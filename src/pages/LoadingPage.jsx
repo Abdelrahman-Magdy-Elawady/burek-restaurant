@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function LoadingPage() {
-  const { key } = useLocation();
+  const { pathname } = useLocation();
   const loadingRef = useRef();
   const isplaying = useRef(false);
 
@@ -36,43 +36,29 @@ export default function LoadingPage() {
             }
           )
           .fromTo(
-            ".left-section",
+            ".moving-section",
             {
               left: "0%",
-              duration: 1,
+              autoAlpha: 1,
+              skewX: "0deg",
             },
             {
               left: "-100%",
               duration: 1,
-              ease: "sine.inOut",
+              autoAlpha: 0.85,
+              ease: "expo.out",
             }
-          )
-          .fromTo(
-            ".right-section",
-            {
-              left: "0%",
-              duration: 1,
-            },
-            {
-              left: "100%",
-              duration: 1,
-              ease: "sine.inOut",
-            },
-            "<"
           );
       }
     },
-    { dependencies: [key], scope: loadingRef }
+    { dependencies: [pathname], scope: loadingRef }
   );
   return (
     <div
       className="fixed inset-0  z-[999] pointer-events-none"
       ref={loadingRef}
     >
-      {/*left*/}
-      <LoadingSection className="absolute [clip-path:polygon(0_0,50%_0,50%_100%,0_100%)] left-section left-0  bg-primary" />
-      {/*right*/}
-      <LoadingSection className="absolute  [clip-path:polygon(50%_0,100%_0,100%_100%,50%_100%)] right-section  bg-primary" />
+      <LoadingSection className="absolute  moving-section left-0 top-0  bg-primary" />
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import { FaQuoteLeft } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import Details from "../components/Details";
 import ApplyForm from "../components/ApplyForm";
 import Button from "../components/Buttons/Button";
+import { useScrollTo } from "../hooks";
 import {
   about_footer,
   about_hero_160,
@@ -92,8 +93,10 @@ const restaurants = [
 ];
 //--------------------------------------------------------------
 export default function AboutPage() {
+  const ref = useRef();
   const [restaurantLocation, setRestaurantLocation] = useState(restaurants[0]);
   const [showModal, setShowModal] = useState(false);
+  const scrollTo = useScrollTo(ref);
 
   //--------------------------------------------------------
   return (
@@ -101,6 +104,7 @@ export default function AboutPage() {
       className="min-h-screen pt-[--page-top-padding]  
       md:pl-[--md-page-left-padding]  md:pt-[--md-page-top-padding]  
       p-[--page-padding]  bg-bgColor text-secondary"
+      ref={ref}
     >
       <div className="grid xl:grid-cols-2 xl:grid-rows-1 gap-8">
         <div className=" flex flex-col gap-8 ">
@@ -178,7 +182,14 @@ export default function AboutPage() {
               <div
                 key={index}
                 className="flex flex-col md:flex-row  p-4 gap-4 items-center rounded-md bg-white support-hover:hover:cursor-pointer shadow-md support-hover:hover:bg-gray-300"
-                onClick={() => setRestaurantLocation(restaurant)}
+                onClick={() => {
+                  setRestaurantLocation(restaurant);
+                  scrollTo(window, {
+                    duration: 2,
+                    scrollTo: "#location-map",
+                    ease: "power2",
+                  });
+                }}
               >
                 <div className="w-[200px] h-[144px]">
                   <img src={restaurant.img} alt="" className="rounded-lg" />
@@ -196,13 +207,13 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8" id="location-map">
             <h1>{restaurantLocation.restaurantName}</h1>
             <div className="font-bold flex items-center gap-2 capitalize">
               <FaMapMarkerAlt />
               {restaurantLocation.location}
             </div>
-            <div className="border-2 border-red-700 h-96 ">
+            <div className="border-2 border-primary h-96 ">
               {restaurantLocation?.map}
             </div>
             <div className="grid grid-cols-2 grid-rows-2 gap-2">
